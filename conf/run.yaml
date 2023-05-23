@@ -1,0 +1,29 @@
+push_to_hub: False
+pretrained_model_name_or_path:
+tokenizer_name: 
+logging_dir:
+hub_model_id:
+mixed_precision: fp16  # choices: no, fp16, bfp16
+output_dir: thumbnail-finetune
+seed: None
+center_crop: False
+resolution: 512
+data_root_image: 
+data_root_text:
+# num_train_epochs: 100
+# max_train_steps: 5000
+
+train:
+  data_dir: 
+  optimizer:
+    name: AdamW
+    learning_rate: 1e-4
+  num_epochs: 20
+  max_train_steps: 5000
+  gradient_accumulation_steps: 1
+  batch_size: 16
+  scale_lr: True
+  scheduler:
+    name: constant # linear, cosine, cosine_with_restarts, polynomial, constant, constant_with_warmup 
+    lr_scheduler: constant 
+    lr_warmup_steps: 500
